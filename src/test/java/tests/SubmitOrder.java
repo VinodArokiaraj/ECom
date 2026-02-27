@@ -15,15 +15,15 @@ import pages.*;
 
 public class SubmitOrder extends BaseTest {
 
-    @Test
-    public void placeOrder() throws IOException {
+    String userEmail = "VinodAV@yopmail.com";
+    String password = "Testing@01";
+    String userCountry = "India";
+    String confirmMsg = "Thankyou for the order.";
 
-        String userEmail = "VinodAV@yopmail.com";
-        String password = "Testing@01";
-        String userCountry = "India";
-        String confirmMsg = "Thankyou for the order.";
-        String url = "https://rahulshettyacademy.com/client/";
-        String productName = "ZARA COAT 3";
+    String productName = "ZARA COAT 3";
+
+        @Test
+        public void placeOrder() throws IOException {
 
         ProductCatalogue productCatalogue = landingPage.LoginApplication(userEmail, password);
         List<WebElement> products = productCatalogue.getProductList();
@@ -37,5 +37,12 @@ public class SubmitOrder extends BaseTest {
         String confirmationMsg = confirmationPage.getConfirmationMessage();
         Assert.assertTrue(confirmationMsg.equalsIgnoreCase(confirmMsg));
 
+    }
+
+    @Test (dependsOnMethods = {"placeOrder"})
+    public void orderHistoryTest() {
+        ProductCatalogue productCatalogue = landingPage.LoginApplication(userEmail, password);
+        OrderPage orderPage = productCatalogue.goToOrdersPage();
+        Assert.assertTrue(orderPage.verifyOrderDisplay(productName));
     }
 }

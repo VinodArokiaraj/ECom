@@ -57,7 +57,7 @@ public class BaseTest {
     public LandingPage launchApplication() throws IOException {
         driver = initializeDriver();
         landingPage = new LandingPage(driver);
-        landingPage.goTo("https://rahulshettyacademy.com/");
+        landingPage.goTo("https://rahulshettyacademy.com/client/");
         return landingPage;
     }
 

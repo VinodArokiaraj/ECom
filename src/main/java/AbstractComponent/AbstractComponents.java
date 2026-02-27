@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CartPage;
+import pages.OrderPage;
 
 import java.time.Duration;
 
@@ -21,6 +22,9 @@ public class AbstractComponents {
 
     @FindBy(css="[routerlink*='cart']")
     WebElement cartButton;
+
+    @FindBy(css="[routerlink*='myorders']")
+    WebElement orderHeader;
 
     public void waitForElementToAppear(By findBy) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -46,6 +50,12 @@ public class AbstractComponents {
         cartButton.click();
         CartPage cartPage = new CartPage(driver);
         return cartPage;
+    }
+
+    public OrderPage goToOrdersPage() {
+        orderHeader.click();
+        OrderPage orderPage = new OrderPage(driver);
+        return orderPage;
     }
 
 }
