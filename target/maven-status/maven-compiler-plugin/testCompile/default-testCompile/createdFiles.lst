@@ -1,1 +1,6 @@
-tests/ECom.class
+tests/ErrorValidations.class
+Data/DataReader.class
+TestComponents/BaseTest$1.class
+Data/DataReader$1.class
+TestComponents/BaseTest.class
+tests/SubmitOrder.class

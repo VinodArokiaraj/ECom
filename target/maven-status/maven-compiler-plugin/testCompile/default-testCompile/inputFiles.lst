@@ -1,1 +1,4 @@
-/Users/vinodmac/IdeaProjects/ECom/src/test/java/tests/ECom.java
+/Users/vinodmac/IdeaProjects/ECom/src/test/java/TestComponents/BaseTest.java
+/Users/vinodmac/IdeaProjects/ECom/src/test/java/Data/DataReader.java
+/Users/vinodmac/IdeaProjects/ECom/src/test/java/tests/ErrorValidations.java
+/Users/vinodmac/IdeaProjects/ECom/src/test/java/tests/SubmitOrder.java
