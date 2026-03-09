@@ -14,14 +14,14 @@ import java.util.List;
 
 public class ErrorValidations extends BaseTest {
 
-    @Test
+    @Test(groups = {"ErrorHandling"})
     public void loginErrorValidation() throws IOException, InterruptedException {
 
         String userEmail = "VinodAV@yopmail.coma";
         String password = "Testing@01";
         String productName = "ZARA COAT 3";
         landingPage.LoginApplication(userEmail, password);
-        Assert.assertEquals("Incorrect email or password.",landingPage.getErrorMessage());
+        Assert.assertEquals(landingPage.getErrorMessage(), "Incorrect email or password.");
     }
 
     @Test
