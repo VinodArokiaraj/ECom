@@ -1,21 +1,43 @@
 package tests;
 
 import TestComponents.BaseTest;
+import TestComponents.Retry;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
+import pages.CheckOutPage;
+import pages.ConfirmationPage;
 import pages.ProductCatalogue;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ErrorValidations extends BaseTest {
 
+    @Test(groups = {"ErrorHandling"},retryAnalyzer = Retry.class)
+    public void loginErrorValidation() throws IOException, InterruptedException {
+
+        String userEmail = "VinodAV@yopmail.coma";
+        String password = "Testing@01";
+        String productName = "ZARA COAT 3";
+        landingPage.LoginApplication(userEmail, password);
+        Assert.assertEquals(landingPage.getErrorMessage(), "Incorrect email  password.");
+    }
+
     @Test
-    public void placeOrder() throws IOException, InterruptedException {
+    public void productErrorValidation() throws IOException {
 
         String userEmail = "VinodAV@yopmail.com";
         String password = "Testing@01";
         String productName = "ZARA COAT 3";
-        landingPage.LoginApplication(userEmail, password);
-        Assert.assertEquals("Incorrect email or password.","landingPage.getErrorMessage()");
+
+        ProductCatalogue productCatalogue = landingPage.LoginApplication(userEmail, password);
+        List<WebElement> products = productCatalogue.getProductList();
+        productCatalogue.addProductToCart(productName);
+        CartPage cartPage = productCatalogue.goToCartPage();
+        Boolean match = cartPage.verifyProductDisplay(productName);
+        Assert.assertTrue(match);
+
     }
 }
