@@ -51,6 +51,7 @@ public class BaseTest {
             }
             driver = new ChromeDriver(options);
             driver.manage().window().setSize(new Dimension(1440, 900)); //full screen
+
         } else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
