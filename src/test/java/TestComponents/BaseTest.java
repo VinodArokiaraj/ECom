@@ -7,10 +7,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -33,30 +35,29 @@ public class BaseTest {
     public WebDriver driver;
     public LandingPage landingPage;
 
-    public WebDriver initializeDriver () throws IOException {
+    public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(
                 System.getProperty("user.dir") + "//src//main//resources//GlobalData.properties"
         );
         prop.load(fis);
-        String browserName = System.getProperty("browser") != null ?System.getProperty("browser") : prop.getProperty("browser");
+        String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
 
-        if (browserName.equalsIgnoreCase("chrome")) {
+        if (browserName.contains("chrome")) {
+            ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        }
-
-        else if (browserName.equalsIgnoreCase("firefox")) {
+            if (browserName.contains("headless")) {
+                options.addArguments("headless");
+            }
+            driver = new ChromeDriver(options);
+            driver.manage().window().setSize(new Dimension(1440, 900)); //full screen
+        } else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
-        }
-
-        else if (browserName.equalsIgnoreCase("edge")) {
+        } else if (browserName.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
-        }
-
-        else if (browserName.equalsIgnoreCase("safari")) {
+        } else if (browserName.equalsIgnoreCase("safari")) {
             WebDriverManager.safaridriver().setup();
             driver = new SafariDriver();
         }
