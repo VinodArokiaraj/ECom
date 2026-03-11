@@ -24,17 +24,17 @@ public class CheckOutPage extends AbstractComponents {
     }
 
     @FindBy(css=".action__submit")
-    WebElement placeOrder;
+    private WebElement placeOrder;
 
     @FindBy(css="[placeholder*='Country']")
-    WebElement countryField;
+    private WebElement countryField;
 
     @FindBy(xpath="//button/span")
-    List<WebElement> selectCountry;
+    private List<WebElement> selectCountry;
 
-    By results = By.cssSelector(".ta-results");
+    private By results = By.cssSelector(".ta-results");
 
-    By checkOutButton = By.xpath("//button/span");
+    private By checkOutButton = By.xpath("//button/span");
 
     public void country(String userCountry) {
         countryField.sendKeys(userCountry);
