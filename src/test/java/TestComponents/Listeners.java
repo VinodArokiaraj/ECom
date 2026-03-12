@@ -20,7 +20,7 @@ public class Listeners extends BaseTest implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         //ITestListener.super.onTestStart(result);
-       test = extent.createTest(result.getMethod().getMethodName());
+        test = extent.createTest(result.getMethod().getMethodName());
         extentTest.set(test); //this will assign a unique thread ID
     }
 
@@ -47,7 +47,7 @@ public class Listeners extends BaseTest implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        extentTest.get().addScreenCaptureFromPath(filePath,result.getMethod().getMethodName());
+        extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
 
     }
 
