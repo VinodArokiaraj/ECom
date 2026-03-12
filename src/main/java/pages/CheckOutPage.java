@@ -17,19 +17,20 @@ import java.util.List;
 public class CheckOutPage extends AbstractComponents {
 
     WebDriver driver;
+
     public CheckOutPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css=".action__submit")
+    @FindBy(css = ".action__submit")
     private WebElement placeOrder;
 
-    @FindBy(css="[placeholder*='Country']")
+    @FindBy(css = "[placeholder*='Country']")
     private WebElement countryField;
 
-    @FindBy(xpath="//button/span")
+    @FindBy(xpath = "//button/span")
     private List<WebElement> selectCountry;
 
     private By results = By.cssSelector(".ta-results");

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ErrorValidations extends BaseTest {
 
-    @Test(groups = {"ErrorHandling"},retryAnalyzer = Retry.class)
+    @Test(groups = {"ErrorHandling"}, retryAnalyzer = Retry.class)
     public void loginErrorValidation() throws IOException, InterruptedException {
 
         String userEmail = "VinodAV@yopmail.coma";
