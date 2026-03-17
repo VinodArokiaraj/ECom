@@ -1,0 +1,5 @@
+.idea/
+target/
+reports/
+*.log
+.DS_Store
