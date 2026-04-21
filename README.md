@@ -70,11 +70,41 @@ To simulate a real-world QA environment by applying:
 📂 Project Structure
 
 ECom/
-├── frontend/
-├── backend/
-├── database/
-├── test-cases/        
-├── bug-reports/       
+├── reports
+    ├── html reports
+    ├── screenshots
+├── src
+    ├── main
+        ├── java
+            ├── AbstractComponent
+                  ├── AbstractComponents
+            ├── Pages
+                  ├── LandingPage
+                  ├── HomePage
+                  ├── ProductCatalogue
+                  ├── CartPage
+                  ├── OrderPage
+                  ├── CheckoutPage
+                  ├── ConfirmationPage
+            ├── resources
+                  ├── ExtentReporterNG
+        ├── resources
+            ├──GlobalData.properties
+    ├── test
+        ├── java
+            ├── Features
+            ├── Data
+                ├── DataDriven
+                ├── DataReader
+                ├── Json files
+            ├── StepDefinitions
+                ├── StepDefinitionImpl
+            ├── TestComponents
+                ├── BaseTest
+                ├── Listeners
+                ├── Retry
+            ├── tests
+                ├── Test cases    
 └── README.md
 
 ---
