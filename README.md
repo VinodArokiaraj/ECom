@@ -2,7 +2,8 @@
 
 📌 Overview
 
-ECom is a full-stack e-commerce application developed and tested to demonstrate real-world **Software Testing and Quality Assurance practices.
+ECom is a full-stack e-commerce application developed and tested to demonstrate real-world
+Software Testing and Quality Assurance practices
 
 This project highlights my ability to:
 
