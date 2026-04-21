@@ -70,7 +70,7 @@ To simulate a real-world QA environment by applying:
 
 📂 Project Structure
 
-ECom/
+ECom
 ├── reports
     ├── html reports
     ├── screenshots
