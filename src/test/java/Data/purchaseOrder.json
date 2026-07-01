@@ -2,11 +2,27 @@
   {
     "userEmail": "VinodAV@yopmail.com",
     "password": "Testing@01",
-    "productName": "ZARA COAT 3"
+    "productName": "ZARA COAT 3",
+    "firstName": "Vinod",
+    "lastName": "Arokiaraj",
+    "mobile": "9999999999",
+    "occupation": "Engineer",
+    "gender": "Male",
+    "userCountry": "India",
+    "confirmMsg": "Thankyou for the order.",
+    "acceptTerms": "true"
   },
   {
     "userEmail": "Vayne.nicolas@gmail.com",
     "password": "Testing@01",
-    "productName": "ADIDAS ORIGINAL"
+    "productName": "ADIDAS ORIGINAL",
+    "firstName": "Vayne",
+    "lastName": "Nicolas",
+    "mobile": "8888888888",
+    "occupation": "Student",
+    "gender": "Female",
+    "userCountry": "India",
+    "confirmMsg": "Thankyou for the order.",
+    "acceptTerms": "true"
   }
 ]
