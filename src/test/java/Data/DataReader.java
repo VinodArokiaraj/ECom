@@ -7,21 +7,25 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
 public class DataReader {
 
-    public List<HashMap<String, String>> getJsonDataToMap() throws IOException {
-        //Read json to String
-        String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir") + "src/test/java/Data/purchaseOrder.json"),
-                StandardCharsets.UTF_8);
+    public static List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
 
-        //String to HashMap
+        // Read JSON file to String
+        String jsonContent = FileUtils.readFileToString(
+                new File(filePath),
+                StandardCharsets.UTF_8
+        );
+
+        // Convert String → List<HashMap>
         ObjectMapper mapper = new ObjectMapper();
-        List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
-        });
-        return data;
+
+        return mapper.readValue(
+                jsonContent,
+                new TypeReference<List<HashMap<String, String>>>() {}
+        );
     }
 }

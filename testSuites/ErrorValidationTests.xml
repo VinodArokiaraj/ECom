@@ -6,6 +6,9 @@
             <include name="ErrorHandling"/>
         </run>
     </groups>
+    <listeners>
+        <listener class-name="TestComponents.Listeners"/>
+    </listeners>
     <test thread-count="5" name="SubmitOrder">
         <classes>
             <class name="tests.SubmitOrder"/>

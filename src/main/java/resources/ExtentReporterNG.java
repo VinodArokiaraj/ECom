@@ -20,4 +20,5 @@ public class ExtentReporterNG {
         extent.setSystemInfo("Tester", "Vinod");
         return extent;
     }
+
 }

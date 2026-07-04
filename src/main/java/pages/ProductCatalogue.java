@@ -61,5 +61,4 @@ public class ProductCatalogue extends AbstractComponents {
                 .collect(Collectors.toList());
     }
 
-
 }
